@@ -16,22 +16,22 @@ public class Polynomial {
         return coefficients.getFraction(part);
     }
 
-    protected Polynomial addPolynomial(Polynomial polynomial) {
+    protected Polynomial sum(Polynomial polynomial) {
         FractionList polynomialSumList = new FractionList();
         int minDegree;
         if (polynomial.getDegree() > this.degree) {
             minDegree = this.degree;
             for (int i = 0; i < polynomial.getDegree() - minDegree; i++) {
-                polynomialSumList.insert(polynomial.getCoefficient(i), i);
+                polynomialSumList.add(polynomial.getCoefficient(i), i);
             }
         } else {
             minDegree = polynomial.getDegree();
             for (int i = 0; i < this.degree - minDegree; i++) {
-                polynomialSumList.insert(this.getCoefficient(i), i);
+                polynomialSumList.add(this.getCoefficient(i), i);
             }
         }
         for (int i = 0; i <= minDegree; i++) {
-            polynomialSumList.insert(
+            polynomialSumList.add(
                     this.getCoefficient(this.degree - i).add(polynomial.getCoefficient(polynomial.getDegree() - i)),
                     minDegree - 1
             );

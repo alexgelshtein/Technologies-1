@@ -14,14 +14,14 @@ public class FractionList {
         return this.minFraction;
     }
 
-    protected FractionList insert(Fraction fraction) {
+    protected FractionList add(Fraction fraction) {
         fractions.add(fraction);
         this.updateMinAndMax(fraction);
 
         return this;
     }
 
-    protected FractionList insert(Fraction fraction, int index) {
+    protected FractionList add(Fraction fraction, int index) {
         if (index < 0 || index > fractions.size()) {
             System.out.println("Invalid index");
         } else {

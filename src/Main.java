@@ -1,3 +1,5 @@
+import static java.util.Arrays.asList;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -11,7 +13,7 @@ public class Main {
         Fraction f7 = new Fraction(8, 4);
 
         FractionList fractionList = new FractionList();
-        fractionList.insert(f0).insert(f1).insert(f2).insert(f3);
+        fractionList.add(f0).add(f1).add(f2).add(f3);
         System.out.println(fractionList);
 
         System.out.println("Max is " + fractionList.getMaxFraction());
@@ -20,11 +22,11 @@ public class Main {
         System.out.println("Less then " + f3 + ": "  + fractionList.countLessThan(f3));
 
         FractionList fractionArray = new FractionList();
-        fractionArray.insert(f4).insert(f5).insert(f6).insert(f7).insert(f3).insert(f4);
+        fractionArray.add(f4).add(f5).add(f6).add(f7).add(f3).add(new Fraction(1,1));
 
         Polynomial p1 = new Polynomial(fractionList);
         Polynomial p2 = new Polynomial(fractionArray);
-        Polynomial polynomialSum = p1.addPolynomial(p2);
+        Polynomial polynomialSum = p1.sum(p2);
         System.out.println(String.format("%s + %s = %s", p1, p2, polynomialSum));
     }
 }
