@@ -20,7 +20,7 @@ public class Main {
         System.out.println("Less then " + f3 + ": "  + fractionList.countLessThan(f3));
 
         FractionList fractionArray = new FractionList();
-        fractionArray.insert(f4).insert(f5).insert(f6).insert(f7).insert(f3);
+        fractionArray.insert(f4).insert(f5).insert(f6).insert(f7).insert(f3).insert(f4);
 
         Polynomial p1 = new Polynomial(fractionList);
         Polynomial p2 = new Polynomial(fractionArray);

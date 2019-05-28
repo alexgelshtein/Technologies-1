@@ -18,23 +18,23 @@ public class Polynomial {
 
     protected Polynomial addPolynomial(Polynomial polynomial) {
         FractionList polynomialSumList = new FractionList();
-        int minDegree = degree;
-        int insertPos = 0;
-        if (polynomial.getDegree() > degree) {
-            insertPos = 1;
-            minDegree = degree;
-            for (int i = 0; i < polynomial.getDegree() - degree; i++) {
-                polynomialSumList.insert(polynomial.getCoefficient(i));
+        int minDegree;
+        if (polynomial.getDegree() > this.degree) {
+            minDegree = this.degree;
+            for (int i = 0; i < polynomial.getDegree() - minDegree; i++) {
+                polynomialSumList.insert(polynomial.getCoefficient(i), i);
             }
-        } else if (polynomial.getDegree() < degree) {
-            insertPos = 1;
+        } else {
             minDegree = polynomial.getDegree();
-            for (int i = 0; i < degree - polynomial.getDegree(); i++) {
+            for (int i = 0; i < this.degree - minDegree; i++) {
                 polynomialSumList.insert(this.getCoefficient(i), i);
             }
         }
-        for (int j = 0; j <= minDegree; j++) {
-            polynomialSumList.insert(this.getCoefficient(this.degree - j).add(polynomial.getCoefficient(polynomial.getDegree() - j)), insertPos);
+        for (int i = 0; i <= minDegree; i++) {
+            polynomialSumList.insert(
+                    this.getCoefficient(this.degree - i).add(polynomial.getCoefficient(polynomial.getDegree() - i)),
+                    minDegree - 1
+            );
         }
         return new Polynomial(polynomialSumList);
     }
